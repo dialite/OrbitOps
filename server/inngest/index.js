@@ -54,5 +54,51 @@ const syncUserUpdation = inngest.createFunction(
   }
 );
 
+// Inngest Function to save workspace data to a database
+const syncWorkspaceCreation = inngest.createFunction(
+  { id: `sync-workspace-from-clerk` },
+  { event: `clerk/organization.created` },
+  async ({ event }) => {
+    const { data } = event;
+    await prisma.workspace.create({
+      data: {
+        id: data.id,
+        name: data.name,
+        slug: data.slug,
+        ownerId: data.created_by,
+        image_url: data.image_url,
+      },
+    });
+
+    //Add creator as ADMIN member
+    await prisma.workspaceMember.create({
+      data: {
+        userId: data.created_by,
+        workspaceId: data.id,
+        role: "ADMIN",
+      },
+    });
+  }
+);
+
+// Inngest Function to update workspace data in database
+const syncWorkspaceUpdate = inngest.createFunction(
+  { id: `update-workspace-from-clerk` },
+  { event: `clerk/organization.updated` },
+  async ({ event }) => {
+    const { data } = event;
+    await prisma.workspace.update({
+      where: {
+        id: data.id,
+      },
+      data: {
+        name: data.name,
+        slug: data.slug,
+        image_url: data.image_url,
+      },
+    });
+  }
+);
+
 // Create an empty array where we'll export future Inngest functions
 export const functions = [syncUserCreation, syncUserDeletion, syncUserUpdation];
