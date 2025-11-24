@@ -1,4 +1,4 @@
-import prisma from "../configs/prisma";
+import prisma from "../configs/prisma.js";
 
 // Get all workspaces for user
 export const getUserWorkspaces = async (req, res) => {
@@ -27,7 +27,7 @@ export const getUserWorkspaces = async (req, res) => {
     res.json({ workspaces });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: error.code || error.messgae });
+    res.status(500).json({ message: error.code || error.message });
   }
 };
 
@@ -74,7 +74,7 @@ export const addMember = async (req, res) => {
 
     // Check if user is already a member
     const existingMember = workspace.members.find(
-      (member) => member.userId === userId
+      (member) => member.userId === user.id
     );
 
     if (existingMember) {
@@ -93,6 +93,6 @@ export const addMember = async (req, res) => {
     res.json({ member, message: "Mmber added successfully" });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: error.code || error.messgae });
+    res.status(500).json({ message: error.code || error.message });
   }
 };
