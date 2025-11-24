@@ -3,7 +3,7 @@ import { ChevronDown, Check, Plus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentWorkspace } from "../features/workspaceSlice";
 import { useNavigate } from "react-router-dom";
-import { useOrganization } from "@clerk/clerk-react";
+import { useOrganization, useClerk, useOrganizationList } from "@clerk/clerk-react";
 
 function WorkspaceDropdown() {
   const { workspaces } = useSelector((state) => state.workspace);
@@ -16,13 +16,30 @@ function WorkspaceDropdown() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Get current organization from Clerk
+  // Clerk hooks
   const { organization } = useOrganization();
+  const clerk = useClerk();
+  const { userMemberships } = useOrganizationList();
 
-  const onSelectWorkspace = (orgId) => {
+  const onSelectWorkspace = async (orgId) => {
+    // Switch Clerk active organization if possible
+    if (userMemberships?.setActive) {
+      try {
+        await userMemberships.setActive({ organization: orgId });
+      } catch (err) {
+        console.error("Error switching active organization:", err);
+      }
+    }
+
     dispatch(setCurrentWorkspace(orgId));
     setIsOpen(false);
     navigate("/");
+  };
+
+  const openCreateOrganization = () => {
+    if (clerk) {
+      clerk.openCreateOrganization();
+    }
   };
 
   // Close dropdown on outside click
@@ -36,7 +53,7 @@ function WorkspaceDropdown() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Only include the current organization as the workspace
+  // Only include the current organization as workspace
   const allWorkspaces = organization
     ? [
         {
@@ -119,7 +136,10 @@ function WorkspaceDropdown() {
 
           <hr className="border-gray-200 dark:border-zinc-700" />
 
-          <div className="p-2 cursor-pointer rounded group hover:bg-gray-100 dark:hover:bg-zinc-800">
+          <div
+            onClick={openCreateOrganization}
+            className="p-2 cursor-pointer rounded group hover:bg-gray-100 dark:hover:bg-zinc-800"
+          >
             <p className="flex items-center text-xs gap-2 my-1 w-full text-blue-600 dark:text-blue-400 group-hover:text-blue-500 dark:group-hover:text-blue-300">
               <Plus className="w-4 h-4" /> Create Workspace
             </p>
@@ -131,6 +151,8 @@ function WorkspaceDropdown() {
 }
 
 export default WorkspaceDropdown;
+
+
 
 
 
