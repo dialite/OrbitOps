@@ -3,10 +3,13 @@ import { ChevronDown, Check, Plus } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentWorkspace } from "../features/workspaceSlice";
 import { useNavigate } from "react-router-dom";
-import { useOrganization, useClerk, useOrganizationList } from "@clerk/clerk-react";
+import {
+  useOrganization,
+  useClerk,
+  useOrganizationList,
+} from "@clerk/clerk-react";
 
 function WorkspaceDropdown() {
-  const { workspaces } = useSelector((state) => state.workspace);
   const currentWorkspace = useSelector(
     (state) => state.workspace?.currentWorkspace || null
   );
@@ -19,13 +22,17 @@ function WorkspaceDropdown() {
   // Clerk hooks
   const { organization } = useOrganization();
   const clerk = useClerk();
-  const { userMemberships } = useOrganizationList();
+
+  // Correct destructuring with userMemberships
+  const { setActive, userMemberships } = useOrganizationList({
+    userMemberships: true,
+  });
 
   const onSelectWorkspace = async (orgId) => {
     // Switch Clerk active organization if possible
-    if (userMemberships?.setActive) {
+    if (setActive) {
       try {
-        await userMemberships.setActive({ organization: orgId });
+        await setActive({ organization: orgId });
       } catch (err) {
         console.error("Error switching active organization:", err);
       }
@@ -53,28 +60,38 @@ function WorkspaceDropdown() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Only include the current organization as workspace
-  const allWorkspaces = organization
-    ? [
-        {
-          id: organization.id,
-          name: organization.name,
-          image_url: organization.imageUrl,
-          membersCount: organization.membersCount || 1,
-        },
-      ]
-    : [];
+  // Load ALL organizations the user belongs to
+  const allWorkspaces =
+    userMemberships?.data?.length
+      ? userMemberships.data.map((m) => ({
+          id: m.organization.id,
+          name: m.organization.name,
+          image_url: m.organization.imageUrl,
+          membersCount: m.organization.membersCount || 1,
+        }))
+      : organization
+      ? [
+          {
+            id: organization.id,
+            name: organization.name,
+            image_url: organization.imageUrl,
+            membersCount: organization.membersCount || 1,
+          },
+        ]
+      : [];
 
   // Determine active workspace
   const activeWorkspace =
-    allWorkspaces.find((ws) => ws.id === currentWorkspace) ||
-    (organization
-      ? {
-          id: organization.id,
-          name: organization.name,
-          image_url: organization.imageUrl,
-        }
-      : null);
+    allWorkspaces.find((ws) => ws.id === currentWorkspace?.id) ||
+    allWorkspaces[0] ||
+    null;
+
+  // Optional: auto-sync Clerk active org with Redux
+  useEffect(() => {
+    if (currentWorkspace?.id && setActive) {
+      setActive({ organization: currentWorkspace.id }).catch(console.error);
+    }
+  }, [currentWorkspace, setActive]);
 
   return (
     <div className="relative m-4" ref={dropdownRef}>
@@ -137,7 +154,10 @@ function WorkspaceDropdown() {
           <hr className="border-gray-200 dark:border-zinc-700" />
 
           <div
-            onClick={openCreateOrganization}
+            onClick={() => {
+              openCreateOrganization();
+              setIsOpen(false);
+            }}
             className="p-2 cursor-pointer rounded group hover:bg-gray-100 dark:hover:bg-zinc-800"
           >
             <p className="flex items-center text-xs gap-2 my-1 w-full text-blue-600 dark:text-blue-400 group-hover:text-blue-500 dark:group-hover:text-blue-300">
@@ -151,7 +171,6 @@ function WorkspaceDropdown() {
 }
 
 export default WorkspaceDropdown;
-
 
 
 
