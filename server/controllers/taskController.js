@@ -65,7 +65,7 @@ export const createTask = async (req, res) => {
 
 export const updateTask = async (req, res) => {
   try {
-    const tesk = await prisma.task.findUnique({
+    const task = await prisma.task.findUnique({
       where: { id: req.params.id },
     });
 
