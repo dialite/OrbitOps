@@ -59,7 +59,7 @@ export const createProject = async (req, res) => {
     });
 
     // Add members to project if they are in the workspace
-    if (team_members?.lenght > 0) {
+    if (team_members?.length > 0) {
       const membersToAdd = [];
       workspace.members.forEach((member) => {
         if (team_members.includes(member.user.email)) {
@@ -132,7 +132,7 @@ export const updateProject = async (req, res) => {
       });
 
       if (!project) {
-        returnres.status(404).json({ message: "Project not found" });
+        return res.status(404).json({ message: "Project not found" });
       } else if (project.team_lead !== userId) {
         return res.status(403).json({
           message:
@@ -185,9 +185,12 @@ export const addMember = async (req, res) => {
         .json({ message: "Only project lead can add members" });
     }
 
+    console.log("Project Members:", project.members);
+    console.log("Email to match:", email);
+
     // Check if user is already a member
     const existingMember = project.members.find(
-      (member) => member.email === email
+      (member) => member.user.email === email
     );
 
     if (existingMember) {
