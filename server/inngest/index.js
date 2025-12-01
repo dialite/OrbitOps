@@ -155,7 +155,7 @@ const sendTaskAssignmentEmail = inngest.createFunction(
           task.title
         }</p>
 
-        <div style="border: 1px solid #ddd; padding: 12px 16px; border-radius: 6px; margin-bottom: 30px>
+        <div style="border: 1px solid #ddd; padding: 12px 16px; border-radius: 6px; margin-bottom: 30px">
           <p style="margin: 6px 0;"><strong>Description:</strong>${
             task.description
           }</p>

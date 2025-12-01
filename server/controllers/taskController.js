@@ -46,6 +46,7 @@ export const createTask = async (req, res) => {
         priority,
         assigneeId,
         status,
+        type,
         due_date: new Date(due_date),
       },
     });
@@ -99,6 +100,7 @@ export const updateTask = async (req, res) => {
     const updatedTask = await prisma.task.update({
       where: { id: req.params.id },
       data: req.body,
+      include: { assignee: true },
     });
 
     res.json({ task: updatedTask, message: "Task updated successfully" });
