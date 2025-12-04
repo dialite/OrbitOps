@@ -1,8 +1,5 @@
 # 🎨 OrbitOps Client – Real-time Project Management Platform
 
-[![Live Site](https://img.shields.io/badge/Live%20Demo-orbit-ops-phi.vercel.app-blue?style=for-the-badge&logo=vercel)](https://orbit-ops-phi.vercel.app/)
-[![Source Code](https://img.shields.io/badge/GitHub-Source%20Code-black?style=for-the-badge&logo=github)](https://github.com/dialite/OrbitOps/tree/main/client)
-
 **OrbitOps Client** is the front-end of a collaborative project management platform. It provides a responsive UI for creating tasks, managing projects, commenting, and real-time updates across teams.
 
 ---
@@ -57,17 +54,17 @@ The **OrbitOps Client** delivers:
 
 ## 🛠️ Tech Stack
 
-| Category          | Technology                           |
-| ----------------- | ------------------------------------ |
-| Framework         | [React.js](https://reactjs.org/)     |
-| Language          | JavaScript / TypeScript              |
-| Styling           | Tailwind CSS                          |
-| State Management  | Redux Toolkit                          |
-| Routing           | React Router                          |
-| Icons             | Lucide React                          |
-| HTTP Client       | Axios                                 |
-| Auth              | Clerk                                 |
-| Package Manager   | npm / pnpm                            |
+| Category         | Technology                       |
+| ---------------- | -------------------------------- |
+| Framework        | [React.js](https://reactjs.org/) |
+| Language         | JavaScript / TypeScript          |
+| Styling          | Tailwind CSS                     |
+| State Management | Redux Toolkit                    |
+| Routing          | React Router                     |
+| Icons            | Lucide React                     |
+| HTTP Client      | Axios                            |
+| Auth             | Clerk                            |
+| Package Manager  | npm / pnpm                       |
 
 ---
 
@@ -111,3 +108,4 @@ npm run dev
 
 # or
 npm install
+```
