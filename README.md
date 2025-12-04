@@ -1,10 +1,17 @@
-🔧 OrbitOps Server – REST API for Projects & Task Management
+🚀 OrbitOps – Modern Operations & Project Workflow Management System
 
-The OrbitOps Server is a secure and scalable REST API powering the OrbitOps project management system. Built with Node.js, Express, and MongoDB, it handles authentication, project logic, task operations, and user management.
+
+
+
+
+
+OrbitOps is a full-stack Operations and Project Workflow Management platform built to streamline task coordination, team collaboration, asset tracking, request workflows, automation, and centralized reporting for modern teams and organizations.
 
 📑 Table of Contents
 
 Overview
+
+Live Demo
 
 Features
 
@@ -12,75 +19,164 @@ Tech Stack
 
 Architecture
 
-API Endpoints
+Client & Server Repositories
 
 Getting Started
 
-Environment Variables
+Folder Structure
+
+Installation
+
+Running Locally
+
+Scripts
+
+License
 
 🔍 Overview
 
-The server provides core logic for:
+OrbitOps redefines modern project and operations management with a lightweight, high-performance system designed for:
 
-Authentication & authorization
+Project & workflow tracking
 
-Project CRUD
+Issue/ticket management
 
-Task CRUD
+Task assignment & collaboration
 
-User management
+Automated processes
 
-Activity tracking
+Asset/resource management
 
-Secure communication with the client
+Real-time updates
+
+Centralized dashboards
+
+Built for startups, teams, and enterprise workflows needing clarity, speed, and structured operations.
+
+🌐 Live Demo
+
+🔗 Client App: https://orbit-ops-phi.vercel.app/
+
+🔗 Server API: https://orbit-ops-server-tau.vercel.app/
+
+🔗 Full Source Code: https://github.com/dialite/OrbitOps
 
 ✨ Features
 
-🔐 JWT authentication
+📁 Project & workflow management
 
-📝 CRUD operations for tasks and projects
+🧾 Structured task creation, editing, and status updates
 
-👥 User creation and management
+👥 Team assignment and collaboration
 
-📡 RESTful API endpoints
+🔔 Real-time updates with client ↔ server sync
 
-🔒 Middleware for security & validation
+📊 Dashboard analytics
 
-⚡ Fast serverless deployment on Vercel
+🗂️ Categorized resource & asset tracking
+
+🧩 Modular, scalable architecture
+
+⚙️ RESTful API with secure data flows
+
+🔐 Environment-based configuration & scalable deployment
+
+⚡ Optimized server responses for performance
 
 🛠️ Tech Stack
-Category Technology
-Runtime Node.js
-Framework Express.js
-Database MongoDB / Mongoose
-Auth JWT
-Validation Middleware-based
-Deployment Vercel Serverless
+Category	Technology
+Frontend	Next.js, React, Tailwind CSS
+Backend	Node.js, Express.js
+Database	PostgreSQL / Prisma ORM
+API Structure	REST API
+Deployment	Vercel (Client & Server)
+Utilities	Axios, Zod, JWT auth (optional)
+Package Manager	npm / pnpm
 🧩 Architecture
 
-Routes → Controllers → Services → Models
+OrbitOps is split into two core subprojects:
 
-Tokens stored securely & validated per request
+🖥️ Client (Frontend — Next.js App)
 
-Modular folder structure for scalability
+Fully responsive Next.js interface
 
-MongoDB models for tasks, projects, users
+Tailwind-powered UI
 
-📡 API Endpoints (Quick Preview)
-Endpoint Description
-/api/auth/_ Login & register
-/api/projects/_ Project CRUD
-/api/tasks/_ Task CRUD
-/api/users/_ User management
+Dashboard, workflows, tasks, projects
+
+Data fetching and synchronization
+
+API communication layer
+
+State management and modular UI system
+
+🛠️ Server (Backend — Express API)
+
+REST API endpoints
+
+Controllers, routes, and services
+
+Authentication-ready structure
+
+Database ORM integration
+
+Secure environment handling
+
+Deployment-ready build
+
+📁 Client & Server Repositories
+
+Frontend (client):
+https://github.com/dialite/OrbitOps/tree/main/client
+
+Backend (server):
+https://github.com/dialite/OrbitOps/tree/main/server
+
 🚀 Getting Started
-cd server
+📁 Folder Structure
+OrbitOps/
+│
+├── client/   # Next.js frontend
+├── server/   # Node.js backend
+└── README.md # Parent documentation
+
+📦 Installation
+git clone https://github.com/dialite/OrbitOps.git
+cd OrbitOps
+
+
+Install dependencies for each subproject:
+
+cd client
 npm install
+
+cd ../server
+npm install
+
+▶️ Running Locally
+Client
+cd client
 npm run dev
 
-🔑 Environment Variables
+Server
+cd server
+npm run dev
 
-Create a .env file:
+📜 Scripts
+Client Scripts
 
-MONGODB_URI=
-JWT_SECRET=
-PORT=4000
+npm run dev – Start local dev server
+
+npm run build – Build for production
+
+npm start – Start production build
+
+Server Scripts
+
+npm run dev – Start dev API
+
+npm run start – Run production server
+
+🪪 License
+
+MIT License © Raymond Olisa / Dialite
