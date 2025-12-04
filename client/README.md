@@ -104,5 +104,10 @@ Clone the repo and install dependencies:
 git clone https://github.com/dialite/OrbitOps.git
 cd OrbitOps/client
 pnpm install
+
+pnpm dev
+# or
+npm run dev
+
 # or
 npm install
