@@ -1,205 +1,108 @@
-🎯 OrbitOps — Modern Team Task & Project Management (Client App)
-Live App: https://orbit-ops-phi.vercel.app/
-Server API: https://orbit-ops-server-tau.vercel.app/
+# 🎨 OrbitOps Client – Real-time Project Management Platform
 
-OrbitOps is a modern, fast, and intuitive team task management and collaboration platform that allows users to create projects, assign tasks, comment in real time, track progress, manage workspaces, and receive email-powered notifications.
+[![Live Site](https://img.shields.io/badge/Live%20Demo-orbit-ops-phi.vercel.app-blue?style=for-the-badge&logo=vercel)](https://orbit-ops-phi.vercel.app/)
+[![Source Code](https://img.shields.io/badge/GitHub-Source%20Code-black?style=for-the-badge&logo=github)](https://github.com/dialite/OrbitOps/tree/main/client)
 
-Built with a polished frontend experience, OrbitOps is optimized for speed, clarity, accessibility, and real-world usability for teams and individuals.
+**OrbitOps Client** is the front-end of a collaborative project management platform. It provides a responsive UI for creating tasks, managing projects, commenting, and real-time updates across teams.
 
-📑 Table of Contents
+---
 
-Overview
+## 📑 Table of Contents
 
-Live Demo
+- [Overview](#overview)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture & Core Tools](#architecture--core-tools)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running Locally](#running-locally)
+- [Scripts](#scripts)
+- [License](#license)
 
-Features
+---
 
-Tech Stack
+## 🔍 Overview
 
-App Architecture
+The **OrbitOps Client** delivers:
 
-Folder Structure
+- Task and project dashboards
+- Real-time updates and notifications
+- Inline comments and discussions
+- Clean and responsive UI for team collaboration
+- Integration with backend APIs for tasks, projects, and comments
 
-Getting Started
+> Designed for teams to track, manage, and collaborate on projects efficiently.
 
-Environment Variables
+---
 
-Scripts
+## 🌐 Live Demo
 
-License
+🔗 [**Try It Now**](https://orbit-ops-phi.vercel.app/)  
+🔗 [**Source Code on GitHub**](https://github.com/dialite/OrbitOps/tree/main/client)
 
-🔍 Overview
+---
 
-The OrbitOps client is a fully responsive React application providing:
+## ✨ Features
 
-Role-based project and task management
+- 📋 Create, edit, and delete tasks and projects
+- 💬 Real-time comments and task discussions
+- 📅 Task due dates, priorities, and status tracking
+- 👥 Team collaboration with user assignment
+- ⚡ Responsive and mobile-first UI design
+- 🌘 Dark mode support
+- 🧩 Modular and reusable React component architecture
 
-Workspace system (each workspace has its own projects & tasks)
+---
 
-Real-time comments system
+## 🛠️ Tech Stack
 
-Automated email notifications (via Resend + Inngest)
+| Category          | Technology                           |
+| ----------------- | ------------------------------------ |
+| Framework         | [React.js](https://reactjs.org/)     |
+| Language          | JavaScript / TypeScript              |
+| Styling           | Tailwind CSS                          |
+| State Management  | Redux Toolkit                          |
+| Routing           | React Router                          |
+| Icons             | Lucide React                          |
+| HTTP Client       | Axios                                 |
+| Auth              | Clerk                                 |
+| Package Manager   | npm / pnpm                            |
 
-Clean UI powered by Tailwind CSS
+---
 
-Secure authentication using Clerk
+## 🧩 Architecture & Core Tools
 
-Integration with OrbitOps Server API
+### 🧑‍🤝‍🧑 Real-Time Collaboration
 
-Designed for creators, teams, startups, and individuals who need fast, structured task execution with a clean UI.
+- API calls to the backend for:
+  - Task CRUD operations
+  - Project management
+  - Comments and discussions
 
-🌐 Live Demo
-👉 Try OrbitOps Client
+### 🧰 UI Components
 
-https://orbit-ops-phi.vercel.app/
+- Modular React components
+- Responsive layouts using Tailwind CSS
+- Reusable forms, tables, modals, and buttons
 
-👉 View API Server
+### ⚙️ State & Data Handling
 
-https://orbit-ops-server-tau.vercel.app/
+- Redux Toolkit stores `currentWorkspace`, `projects`, `tasks`, and `comments`
+- Selectors and slices manage state efficiently
+- Async thunks for API calls with token authentication
 
-✨ Features (Client App)
-📝 Projects & Tasks
+---
 
-Create and manage projects
+## 🚀 Getting Started
 
-Create tasks inside projects
+### 📦 Installation
 
-Task properties:
+Clone the repo and install dependencies:
 
-Status
-
-Priority
-
-Type
-
-Due date
-
-Description
-
-Assignee
-
-Progress indicator for each project
-
-💬 Real-Time Comment System
-
-Task-based threaded comments
-
-Auto-refresh comments every 10s
-
-User avatars, timestamps, author labels
-
-Smart layout (self vs others alignment)
-
-🧩 Workspaces
-
-Each user can create unlimited workspaces
-
-Workspaces contain isolated projects & tasks
-
-🔐 Authentication
-
-Powered by Clerk:
-
-Sign in / Sign up
-
-Profile data
-
-Route protection
-
-📬 Email Notifications
-
-Triggered when:
-
-A task receives a comment
-
-A task is assigned
-
-A project is updated
-
-(Handled by the server + Inngest + Resend)
-
-🎨 UI & UX
-
-Tailwind CSS + gradient accents
-
-Dark mode ready
-
-Mobile responsive
-
-Smooth transitions
-
-Clean card layout
-
-🛠️ Tech Stack (Client)
-Category Technology
-Frontend Framework React.js + Vite
-State Management Redux Toolkit
-UI Styling Tailwind CSS
-Auth Clerk
-HTTP Client Axios
-Date Utility date-fns
-Icons Lucide-React
-Deployment Vercel
-🧩 App Architecture
-
-The client interacts with the server using:
-
-JWT from Clerk
-
-REST API calls to /api/\*
-
-Axios instance with automatic auth headers
-
-Workspace-aware structure
-
-Periodic comment polling
-
-📁 Folder Structure
-client/
-│── src/
-│ ├── components/
-│ ├── pages/
-│ ├── redux/
-│ ├── hooks/
-│ ├── configs/
-│ ├── utils/
-│ ├── styles/
-│ └── App.jsx
-│── public/
-│── package.json
-│── vite.config.js
-
-🚀 Getting Started (Client)
-1️⃣ Clone the Repository
+```bash
 git clone https://github.com/dialite/OrbitOps.git
 cd OrbitOps/client
-
-2️⃣ Install Dependencies
-npm install
-
-# or
-
-yarn install
-
-# or
-
 pnpm install
-
-3️⃣ Add Environment Variables
-
-Create:
-
-VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key
-VITE_API_BASE_URL=https://orbit-ops-server-tau.vercel.app
-
-4️⃣ Run the Client Locally
-npm run dev
-
-📜 Scripts
-Command Description
-npm run dev Start development server
-npm run build Build for production
-npm run preview Preview production build
-📄 License
-
-This project is licensed under the MIT License.
+# or
+npm install
