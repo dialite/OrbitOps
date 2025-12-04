@@ -1,196 +1,227 @@
-🖥️ OrbitOps — Backend API Server (Node + Express + Neon + Clerk + Inngest + Resend)
-API Root: https://orbit-ops-server-tau.vercel.app/
 
-OrbitOps Server powers the full application with a clean, scalable, modular backend architecture featuring authentication, automated email workflows, database management, and REST endpoints for workspaces, projects, tasks, comments, and notifications.
+---
 
-📑 Table of Contents
+# **2️⃣ Server README (`/server/README.md`)**
 
-Overview
+```markdown
+# 🎨 OrbitOps Server – Backend API for Real-time Project Management
 
-Live API
+[![Live Site](https://img.shields.io/badge/Live%20Demo-orbit-ops-server-tau.vercel.app-blue?style=for-the-badge&logo=vercel)](https://orbit-ops-server-tau.vercel.app/)
+[![Source Code](https://img.shields.io/badge/GitHub-Source%20Code-black?style=for-the-badge&logo=github)](https://github.com/dialite/OrbitOps/tree/main/server)
 
-Features
+**OrbitOps Server** is the backend API for the OrbitOps project management platform. It handles tasks, projects, user authentication, comments, and real-time data updates.
 
-Tech Stack
+---
 
-Architecture
+## 📑 Table of Contents
 
-API Modules
+- [Overview](#overview)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture & Core Tools](#architecture--core-tools)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running Locally](#running-locally)
+- [Scripts](#scripts)
+- [License](#license)
 
-Folder Structure
+---
 
-Getting Started
+## 🔍 Overview
 
-Env Variables
+The **OrbitOps Server** provides:
 
-Scripts
+- REST API for managing tasks, projects, comments, and users
+- Token-based authentication with Clerk
+- Secure database operations
+- Integration for front-end client and real-time updates
 
-License
+> Serves as the backbone for client interactions and team collaboration.
 
-🔍 Overview
+---
 
-The OrbitOps server handles:
+## 🌐 Live Demo
 
-User authentication (via Clerk JWTs)
+🔗 [**Try It Now**](https://orbit-ops-server-tau.vercel.app/)  
+🔗 [**Source Code on GitHub**](https://github.com/dialite/OrbitOps/tree/main/server)
 
-Workspace creation & membership
+---
 
-Project management
+## ✨ Features
 
-Task creation + assignment
+- 🔐 User authentication & workspace management
+- 📋 CRUD operations for tasks and projects
+- 💬 Comments and discussions linked to tasks
+- ⚡ Real-time updates support for clients
+- 🗄️ PostgreSQL database with Prisma ORM
+- 🌘 Dark mode-ready API responses
 
-Comment system
+---
 
-Automated email workflows using Inngest + Resend SMTP
+## 🛠️ Tech Stack
 
-Neon serverless PostgreSQL
+| Category         | Technology                                     |
+| ---------------- | ---------------------------------------------- |
+| Runtime          | Node.js                                        |
+| Framework        | Express.js                                     |
+| Language         | JavaScript / TypeScript                        |
+| Database         | PostgreSQL                                    |
+| ORM              | Prisma                                         |
+| Authentication   | Clerk                                         |
+| Email Service    | Nodemailer / Resend SMTP                       |
+| Caching          | Upstash Redis                                 |
+| Deployment       | Vercel / Railway                               |
+| Package Manager  | npm / pnpm                                     |
 
-Secure API routes
+---
 
-CORS + middleware layers
+## 🧩 Architecture & Core Tools
 
-🌐 Live API Server
-👉 API Endpoint Root:
+### 🧑‍💻 API Endpoints
 
-https://orbit-ops-server-tau.vercel.app/
+- Tasks: `/api/tasks`
+- Projects: `/api/projects`
+- Comments: `/api/comments`
+- Users & Workspaces: `/api/users`
 
-✨ Features (Server API)
-🔐 Authentication / Authorization
+### 🧰 Data Management
 
-Auth via Clerk JWTs
+- PostgreSQL for relational data storage
+- Prisma ORM for schema management
+- Redis for caching and real-time features
 
-Workspace member validation
+### ⚙️ Authentication & Security
 
-User-to-task permission checks
+- Clerk authentication with JWT tokens
+- Role-based access control for projects
+- Data validation with Zod or middleware
 
-📁 Workspaces
+---
 
-Create workspace
+## 🚀 Getting Started
 
-List user workspaces
+### 📦 Installation
 
-Add/remove members
+Clone the repo and install dependencies:
 
-📂 Projects
-
-Create project
-
-Update project
-
-Track project progress
-
-📝 Tasks
-
-Create tasks
-
-Assign users
-
-Set status/priority/type
-
-Update task details
-
-Get tasks by project
-
-💬 Comments
-
-Add comment to task
-
-Get comments for tasks
-
-Return user metadata
-
-📬 Automated Email Notifications
-
-Via Inngest + Resend SMTP
-
-Triggered on:
-
-New comment
-
-Task updates
-
-Assignments
-
-🗄️ Database
-
-Neon Serverless PostgreSQL
-
-Workspaces
-
-Projects
-
-Tasks
-
-Comments
-
-Users
-
-🛠️ Tech Stack (Server)
-Category Technology
-Runtime Node.js
-Framework Express.js
-Database Neon Serverless PostgreSQL
-Auth Clerk
-Email Resend SMTP
-Background Jobs Inngest
-ORM / Query Layer SQL queries
-Deployment Vercel
-🧩 Backend Architecture
-
-routes/ → REST endpoints
-
-controllers/ → business logic
-
-middlewares/ → auth, validation, error handling
-
-db/ → connection + queries
-
-inngest/ → background workflows
-
-utils/ → reusable helpers
-
-📁 Folder Structure
-server/
-│── src/
-│ ├── routes/
-│ ├── controllers/
-│ ├── db/
-│ ├── inngest/
-│ ├── middleware/
-│ ├── utils/
-│ └── server.js
-│── package.json
-│── vercel.json
-│── .env.example
-
-🚀 Getting Started (Server)
-1️⃣ Clone repo & enter server folder
+```bash
 git clone https://github.com/dialite/OrbitOps.git
 cd OrbitOps/server
-
-2️⃣ Install dependencies
+pnpm install
+# or
 npm install
 
-3️⃣ Add environment variables
 
-Example .env:
+---
 
-DATABASE_URL=your_neon_postgres_url
-CLERK_SECRET_KEY=your_clerk_secret_key
+# **2️⃣ Server README (`/server/README.md`)**
 
-SMTP_HOST=smtp.resend.com
-SMTP_PORT=587
-SMTP_USER=resend
-SMTP_PASS=your_resend_api_key
-SENDER_EMAIL=onboarding@resend.dev
+```markdown
+# 🎨 OrbitOps Server – Backend API for Real-time Project Management
 
-4️⃣ Run Local Development
-npm run dev
+[![Live Site](https://img.shields.io/badge/Live%20Demo-orbit-ops-server-tau.vercel.app-blue?style=for-the-badge&logo=vercel)](https://orbit-ops-server-tau.vercel.app/)
+[![Source Code](https://img.shields.io/badge/GitHub-Source%20Code-black?style=for-the-badge&logo=github)](https://github.com/dialite/OrbitOps/tree/main/server)
 
-📜 Scripts
-Command Description
-npm run dev Start development server
-npm run start Run production build
-📄 License
+**OrbitOps Server** is the backend API for the OrbitOps project management platform. It handles tasks, projects, user authentication, comments, and real-time data updates.
 
-This project is licensed under the MIT License.
+---
+
+## 📑 Table of Contents
+
+- [Overview](#overview)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture & Core Tools](#architecture--core-tools)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running Locally](#running-locally)
+- [Scripts](#scripts)
+- [License](#license)
+
+---
+
+## 🔍 Overview
+
+The **OrbitOps Server** provides:
+
+- REST API for managing tasks, projects, comments, and users
+- Token-based authentication with Clerk
+- Secure database operations
+- Integration for front-end client and real-time updates
+
+> Serves as the backbone for client interactions and team collaboration.
+
+---
+
+## 🌐 Live Demo
+
+🔗 [**Try It Now**](https://orbit-ops-server-tau.vercel.app/)  
+🔗 [**Source Code on GitHub**](https://github.com/dialite/OrbitOps/tree/main/server)
+
+---
+
+## ✨ Features
+
+- 🔐 User authentication & workspace management
+- 📋 CRUD operations for tasks and projects
+- 💬 Comments and discussions linked to tasks
+- ⚡ Real-time updates support for clients
+- 🗄️ PostgreSQL database with Prisma ORM
+- 🌘 Dark mode-ready API responses
+
+---
+
+## 🛠️ Tech Stack
+
+| Category         | Technology                                     |
+| ---------------- | ---------------------------------------------- |
+| Runtime          | Node.js                                        |
+| Framework        | Express.js                                     |
+| Language         | JavaScript / TypeScript                        |
+| Database         | PostgreSQL                                    |
+| ORM              | Prisma                                         |
+| Authentication   | Clerk                                         |
+| Email Service    | Nodemailer / Resend SMTP                       |
+| Caching          | Upstash Redis                                 |
+| Deployment       | Vercel / Railway                               |
+| Package Manager  | npm / pnpm                                     |
+
+---
+
+## 🧩 Architecture & Core Tools
+
+### 🧑‍💻 API Endpoints
+
+- Tasks: `/api/tasks`
+- Projects: `/api/projects`
+- Comments: `/api/comments`
+- Users & Workspaces: `/api/users`
+
+### 🧰 Data Management
+
+- PostgreSQL for relational data storage
+- Prisma ORM for schema management
+- Redis for caching and real-time features
+
+### ⚙️ Authentication & Security
+
+- Clerk authentication with JWT tokens
+- Role-based access control for projects
+- Data validation with Zod or middleware
+
+---
+
+## 🚀 Getting Started
+
+### 📦 Installation
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/dialite/OrbitOps.git
+cd OrbitOps/server
+pnpm install
+# or
+npm install
