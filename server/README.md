@@ -225,3 +225,7 @@ cd OrbitOps/server
 pnpm install
 # or
 npm install
+
+pnpm server
+# or
+npm run server
