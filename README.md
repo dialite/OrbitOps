@@ -1,182 +1,103 @@
-🚀 OrbitOps – Modern Operations & Project Workflow Management System
 
+---
 
+# ** Parent README (`/README.md`)**
 
+```markdown
+# 🎨 OrbitOps – Real-time Project Management Platform
 
+[![Live Site Client](https://img.shields.io/badge/Live%20Demo-Client-blue?style=for-the-badge&logo=vercel)](https://orbit-ops-phi.vercel.app/)
+[![Live Site Server](https://img.shields.io/badge/Live%20Demo-Server-blue?style=for-the-badge&logo=vercel)](https://orbit-ops-server-tau.vercel.app/)
+[![Source Code](https://img.shields.io/badge/Source%20Code-black?style=for-the-badge&logo=github)](https://github.com/dialite/OrbitOps)
 
+**OrbitOps** is a full-stack, real-time project management platform. It features task tracking, project dashboards, team collaboration, inline comments, and responsive design — combining a modern React client with a Node.js + Express backend.
 
-OrbitOps is a full-stack Operations and Project Workflow Management platform built to streamline task coordination, team collaboration, asset tracking, request workflows, automation, and centralized reporting for modern teams and organizations.
+---
 
-📑 Table of Contents
+## 📑 Table of Contents
 
-Overview
+- [Overview](#overview)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture & Core Tools](#architecture--core-tools)
+- [Getting Started](#getting-started)
+  - [Client Installation](#client-installation)
+  - [Server Installation](#server-installation)
+- [License](#license)
 
-Live Demo
+---
 
-Features
+## 🔍 Overview
 
-Tech Stack
+**OrbitOps** combines:
 
-Architecture
+- A responsive **React client** for project and task management
+- A **Node.js + Express server** with PostgreSQL & Prisma backend
+- Real-time collaboration, comments, and notifications
+- Secure user authentication and workspace management
 
-Client & Server Repositories
+> Designed for teams to organize, track, and collaborate on projects efficiently.
 
-Getting Started
+---
 
-Folder Structure
+## 🌐 Live Demo
 
-Installation
+- 🔗 [**Client**](https://orbit-ops-phi.vercel.app/)  
+- 🔗 [**Server**](https://orbit-ops-server-tau.vercel.app/)  
+- 🔗 [**Source Code on GitHub**](https://github.com/dialite/OrbitOps)
 
-Running Locally
+---
 
-Scripts
+## ✨ Features
 
-License
+- 📋 Task and project creation, editing, and deletion
+- 💬 Real-time comments and discussions
+- 👥 User assignment and team collaboration
+- ⚡ Responsive UI with mobile support
+- 🔐 Authentication with Clerk
+- 🗄️ Database management with PostgreSQL & Prisma
+- 🌘 Dark mode ready
 
-🔍 Overview
+---
 
-OrbitOps redefines modern project and operations management with a lightweight, high-performance system designed for:
+## 🛠️ Tech Stack
 
-Project & workflow tracking
+| Category         | Technology                                     |
+| ---------------- | ---------------------------------------------- |
+| Client           | React.js, Redux Toolkit, Tailwind CSS, Clerk   |
+| Server           | Node.js, Express.js, PostgreSQL, Prisma, Clerk |
+| Icons            | Lucide React                                   |
+| Caching          | Redis                                          |
+| Package Manager  | npm / pnpm                                     |
 
-Issue/ticket management
+---
 
-Task assignment & collaboration
+## 🧩 Architecture & Core Tools
 
-Automated processes
+### 🧑‍💻 Client
 
-Asset/resource management
+- React components with modular architecture
+- Redux Toolkit for state management
+- Tailwind CSS for styling
+- API integration with the server
 
-Real-time updates
+### 🧑‍💻 Server
 
-Centralized dashboards
+- REST API with Express.js
+- PostgreSQL database via Prisma
+- Authentication and role-based access control
+- Comment and task management endpoints
 
-Built for startups, teams, and enterprise workflows needing clarity, speed, and structured operations.
+---
 
-🌐 Live Demo
+## 🚀 Getting Started
 
-🔗 Client App: https://orbit-ops-phi.vercel.app/
+### 📦 Client Installation
 
-🔗 Server API: https://orbit-ops-server-tau.vercel.app/
-
-🔗 Full Source Code: https://github.com/dialite/OrbitOps
-
-✨ Features
-
-📁 Project & workflow management
-
-🧾 Structured task creation, editing, and status updates
-
-👥 Team assignment and collaboration
-
-🔔 Real-time updates with client ↔ server sync
-
-📊 Dashboard analytics
-
-🗂️ Categorized resource & asset tracking
-
-🧩 Modular, scalable architecture
-
-⚙️ RESTful API with secure data flows
-
-🔐 Environment-based configuration & scalable deployment
-
-⚡ Optimized server responses for performance
-
-🛠️ Tech Stack
-Category	Technology
-Frontend	Next.js, React, Tailwind CSS
-Backend	Node.js, Express.js
-Database	PostgreSQL / Prisma ORM
-API Structure	REST API
-Deployment	Vercel (Client & Server)
-Utilities	Axios, Zod, JWT auth (optional)
-Package Manager	npm / pnpm
-🧩 Architecture
-
-OrbitOps is split into two core subprojects:
-
-🖥️ Client (Frontend — Next.js App)
-
-Fully responsive Next.js interface
-
-Tailwind-powered UI
-
-Dashboard, workflows, tasks, projects
-
-Data fetching and synchronization
-
-API communication layer
-
-State management and modular UI system
-
-🛠️ Server (Backend — Express API)
-
-REST API endpoints
-
-Controllers, routes, and services
-
-Authentication-ready structure
-
-Database ORM integration
-
-Secure environment handling
-
-Deployment-ready build
-
-📁 Client & Server Repositories
-
-Frontend (client):
-https://github.com/dialite/OrbitOps/tree/main/client
-
-Backend (server):
-https://github.com/dialite/OrbitOps/tree/main/server
-
-🚀 Getting Started
-📁 Folder Structure
-OrbitOps/
-│
-├── client/   # Next.js frontend
-├── server/   # Node.js backend
-└── README.md # Parent documentation
-
-📦 Installation
+```bash
 git clone https://github.com/dialite/OrbitOps.git
-cd OrbitOps
-
-
-Install dependencies for each subproject:
-
-cd client
+cd OrbitOps/client
+pnpm install
+# or
 npm install
-
-cd ../server
-npm install
-
-▶️ Running Locally
-Client
-cd client
-npm run dev
-
-Server
-cd server
-npm run dev
-
-📜 Scripts
-Client Scripts
-
-npm run dev – Start local dev server
-
-npm run build – Build for production
-
-npm start – Start production build
-
-Server Scripts
-
-npm run dev – Start dev API
-
-npm run start – Run production server
-
-🪪 License
-
-MIT License © Raymond Olisa / Dialite
