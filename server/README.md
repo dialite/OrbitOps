@@ -1,7 +1,7 @@
 
 ---
 
-# **2️⃣ Server README (`/server/README.md`)**
+# ** Server README (`/server/README.md`)**
 
 ```markdown
 # 🎨 OrbitOps Server – Backend API for Real-time Project Management
