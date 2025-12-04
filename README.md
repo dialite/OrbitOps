@@ -6,10 +6,6 @@
 ```markdown
 # 🎨 OrbitOps – Real-time Project Management Platform
 
-[![Live Site Client](https://img.shields.io/badge/Live%20Demo-Client-blue?style=for-the-badge&logo=vercel)](https://orbit-ops-phi.vercel.app/)
-[![Live Site Server](https://img.shields.io/badge/Live%20Demo-Server-blue?style=for-the-badge&logo=vercel)](https://orbit-ops-server-tau.vercel.app/)
-[![Source Code](https://img.shields.io/badge/Source%20Code-black?style=for-the-badge&logo=github)](https://github.com/dialite/OrbitOps)
-
 **OrbitOps** is a full-stack, real-time project management platform. It features task tracking, project dashboards, team collaboration, inline comments, and responsive design — combining a modern React client with a Node.js + Express backend.
 
 ---
